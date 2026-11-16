@@ -1,3 +1,7 @@
+# Lineage builds these modules through TARGET_KERNEL_EXT_MODULES.
+# The legacy entry point requires Qualcomm DLKM build infrastructure.
+ifneq ($(wildcard $(TOP)/device/qcom/common/dlkm/Build_external_kernelmodule.mk),)
+
 MM_DRIVER_PATH := $(call my-dir)
 
 MM_DRV_DLKM_ENABLE := true
@@ -14,3 +18,5 @@ ifeq ($(MM_DRV_DLKM_ENABLE), true)
 		include $(MM_DRIVER_PATH)/sync_fence/Android.mk
 	endif
 endif
+
+endif # Qualcomm DLKM build infrastructure
