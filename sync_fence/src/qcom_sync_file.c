@@ -378,7 +378,7 @@ static int spec_sync_bind_array(struct fence_bind_data *sync_bind_info)
 	for (i = 0; i < num_fences; i++) {
 		if (!(fence_array->fences[i]->context == DUMMY_CONTEXT &&
 			fence_array->fences[i]->seqno == DUMMY_SEQNO)) {
-			pr_err("fence array already populated, spec fd:%d status:%d flags:0x%x\n",
+			pr_err("fence array already populated, spec fd:%d status:%d flags:0x%lx\n",
 				sync_bind_info->out_bind_fd, dma_fence_get_status(fence),
 				fence->flags);
 			ret = -EINVAL;
